@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('capacitacions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("descripcion");
+            $table->string("fecha");
+            $table->string("hora");
+            $table->foreignid("tiposervicio_id")->references('id')
+            ->on('tiposervicios');
+            $table->foreignid("actividad_id")->references('id')
+            ->on('actividadcapacitacions');
         });
     }
 

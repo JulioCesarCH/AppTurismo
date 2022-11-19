@@ -27,10 +27,17 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/capacitacion', [App\Http\Controllers\CapacitacionController::class, 'index'])->middleware("auth");
+Route::post('/capacitacion/guardar',[CapacitacionController::class,'guardar']);
 Route::get('/gastronomia', [App\Http\Controllers\GastronomiaController::class, 'index']);
-Route::get('/fechafestiva', [App\Http\Controllers\FechafestivaController::class, 'index']);
+Route::get('/gastronomiap', [App\Http\Controllers\GastronomiaController::class, 'indexp']);
+Route::post('/gastronomiap/guardar',[GastronomiaController::class,'guardar']);
 Route::get('/atractivoturistico', [App\Http\Controllers\AtractivoturisticoController::class, 'index']);
+Route::get('/atractivoturisticop', [App\Http\Controllers\AtractivoturisticoController::class, 'indexp']);
 Route::get('/alojamiento', [App\Http\Controllers\ServicioturisticoController::class, 'alojamiento']);
 Route::get('/restaurante', [App\Http\Controllers\ServicioturisticoController::class, 'restaurante']);
 Route::get('/transporte', [App\Http\Controllers\ServicioturisticoController::class, 'transporte']);
 Route::get('/clinicas', [App\Http\Controllers\ServicioturisticoController::class, 'clinicas']);
+Route::post('/atractivoturisticop/guardar',[AtractivoturisticoController::class,'guardar']);
+Route::get('/servicioturisticop', [App\Http\Controllers\ServicioturisticoController::class, 'indexp']);
+Route::post('/servicioturisticop/guardar',[ServicioturisticoController::class,'guardar']);
+

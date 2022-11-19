@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('servicioturisticos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("nombre");
+            $table->string("descripcion",500);
+            $table->string("imagen");
+            $table->string("direccion");
+            $table->string("telf");
+            $table->string("servicios");
+            $table->string("horario");
+            $table->foreignid("tiposervicio_id")->constrained();
         });
     }
 

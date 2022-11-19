@@ -32,14 +32,25 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <nav>
                 <section class="contenedor nav">
+                    
                     <div class="logo">
                         <a href="/"><img src="{{asset("img/logoGOREHCO.png")}}" alt="" href="/home"></a>
                     </div>
                     <div class="enlaces-header">
                         <a href="/atractivoturistico">Que Visitar</a>
                         <a href="/gastronomia">Gastronomia</a>
-                        <a href="fechafestiva">Fechas festivas</a>
-                        <a href="#">Servicios Turisticos</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Servicios Turisticos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="#">Alojamiento</a></li>
+                              <li><a class="dropdown-item" href="#">Restaurantes</a></li>
+                              <li><a class="dropdown-item" href="#">Transporte</a></li>
+                              <li><a class="dropdown-item" href="#">Clinicas</a></li>
+                            </ul>
+                        </li>
+
                         @Auth
                         @if(session('tipo_usuario')=="admine" || session('tipo_usuario')=="admin")
                         <a href="/capacitacion">Panel</a>
@@ -55,15 +66,13 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            @Auth
-                            @if(session('tipo_usuario')=="admin")
+
                                 @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                                 @endif
-                            @endif
-                            @endauth
+                            
                            
                         @else
                             <li class="nav-item dropdown">

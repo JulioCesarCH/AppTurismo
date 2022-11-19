@@ -46,27 +46,27 @@
             <h5 class="modal-title" id="exampleModalLabel">Nuevo Registro</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>             
-          <form action="/productos/guardar" method="post">
+          <form action="/capacitacion/guardar" method="post">
              <div class="modal-body">
               <h5>Registre los datos de Capacitacion</h5>
               <br>
               @csrf
+              <label for="exampleFormControl1" class="form-label">Seleccione Tipo de Servicio</label>
+                <select class="form-select" name="tiposervicio_id">
+                    @foreach ($resultados2 as $tservicio)
+                        <option value={{$tservicio->id}}>{{$tservicio->descripcion}}</option>;
+                    @endforeach
+                </select>
+                <label for="exampleFormControl1" class="form-label">Seleccione Actividad</label>
+                <select class="form-select" name="actividad_id">
+                    @foreach ($resultados as $actividad)
+                        <option value={{$actividad->id}}>{{$actividad->descripcion}}</option>;
+                    @endforeach
+                </select>
                 Descripcion: <textarea class="form-control my-2" placeholder="Escribe aquí el Tema..." name="descripcion" required></textarea><br>
                 Fecha: <input class="form-control my-1" type="date" name="fecha" required><br>
                 Hora: <input class="form-control my-1" type="time" name="hora" required><br>
                 
-                <label for="exampleFormControl1" class="form-label">Seleccione Actividad</label>
-                <select class="form-select" name="actividadcapacitacion_id">
-                    @foreach ($resultados as $actividad)
-                        <option value={{$actividad->id}}>{{$actividad->nombre}}</option>;
-                    @endforeach
-                </select>
-                <label for="exampleFormControl1" class="form-label">Seleccione Servicio</label>
-                <select class="form-select" name="servicio_id">
-                    @foreach ($resultados2 as $servicio)
-                        <option value={{$servicio->id}}>{{$servicio->nombre}}</option>;
-                    @endforeach
-                </select>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

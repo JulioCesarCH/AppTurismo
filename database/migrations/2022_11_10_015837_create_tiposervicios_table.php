@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('tiposervicios', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("descripcion");
+
         });
     }
 

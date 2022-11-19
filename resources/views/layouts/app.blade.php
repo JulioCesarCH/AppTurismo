@@ -49,10 +49,9 @@
                     @if(session('tipo_usuario')=="admin")
                         @if (Route::has('register'))
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="/capacitacion">Capacitaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/capacitacion">Servicios Turisticos</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/capacitacion">Gastronomia</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/capacitacion">Atractivos turisticos</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/capacitacion">Fechas Festivas</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/servicioturisticop">Servicios Turisticos</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/gastronomiap">Gastronomia</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/atractivoturisticop">Atractivos turisticos</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="/capacitacion">Usuarios</a></li>
                         @endif
                     @endif
