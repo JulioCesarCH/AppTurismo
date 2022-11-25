@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CapacitacionController;
+use App\Http\Controllers\GastronomiaController;
+use App\Http\Controllers\AtractivoturisticoController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ServicioturisticoController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/registro', [App\Http\Controllers\Auth\RegisterController::class, 'registrar'])->name('registrarse');
+Route::get('/capacitacion', [App\Http\Controllers\CapacitacionController::class, 'index'])->middleware("auth");
+Route::post('/capacitacion/guardar',[CapacitacionController::class,'guardar']);
+Route::get('/gastronomia', [App\Http\Controllers\GastronomiaController::class, 'index']);
+Route::get('/gastronomiap', [App\Http\Controllers\GastronomiaController::class, 'indexp']);
+Route::post('/gastronomiap/guardar',[GastronomiaController::class,'guardar']);
+Route::get('/atractivoturistico', [App\Http\Controllers\AtractivoturisticoController::class, 'index']);
+Route::get('/atractivoturisticop', [App\Http\Controllers\AtractivoturisticoController::class, 'indexp']);
+Route::get('/st/alojamiento', [App\Http\Controllers\ServicioturisticoController::class, 'alojamiento']);
+Route::get('/st/restaurante', [App\Http\Controllers\ServicioturisticoController::class, 'restaurante']);
+Route::get('/st/transporte', [App\Http\Controllers\ServicioturisticoController::class, 'transporte']);
+Route::get('/st/clinicas', [App\Http\Controllers\ServicioturisticoController::class, 'clinicas']);
+Route::post('/atractivoturisticop/guardar',[AtractivoturisticoController::class,'guardar']);
+Route::get('/servicioturisticop', [App\Http\Controllers\ServicioturisticoController::class, 'indexp']);
+Route::post('/servicioturisticop/guardar',[ServicioturisticoController::class,'guardar']);
+
